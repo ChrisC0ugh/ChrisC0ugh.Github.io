@@ -1,12 +1,26 @@
+var birds; 
 //The setup function only happens once
  function setup() {
      createCanvas(500, 500); //create a 500px X 500px canvas
-     }
+     birds = new Group();
+
+for (var i = 0; i < 5; i++) {
+    var b = createSprite(
+      random(width), random(height),
+      random(10, 50), random(5, 25));
+    b.shapeColor = color(255, 0, random(255));
+    b.friction = random(0.97, 0.99);
+    b.maxSpeed = random(1, 4);
+    b.rotateToDirection = true;
+    birds.add(b);
+  }
+ }
 
 let snowflakes = []; // array to hold snowflake objects
 
 function draw() {
   background('lightgrey');
+   
   let t = frameCount / 60; // update time
 
   // create a random number of snowflakes each frame
@@ -19,6 +33,7 @@ function draw() {
     flake.update(t); // update snowflake position
     flake.display(); // draw snowflake
   }
+    triangle(-44, 595, 539, 594, 239, 125); 
 }
 
 // snowflake class
@@ -55,4 +70,5 @@ function snowflake() {
     ellipse(this.posX, this.posY, this.size);
   };
 }
+
 
