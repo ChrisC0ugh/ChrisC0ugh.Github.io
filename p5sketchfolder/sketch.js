@@ -1,4 +1,3 @@
-var birds; 
 //The setup function only happens once
  function setup() {
      createCanvas(500, 500); //create a 500px X 500px canvas
@@ -20,7 +19,22 @@ let snowflakes = []; // array to hold snowflake objects
 
 function draw() {
   background('lightgrey');
-   
+    
+    {
+{
+frameRate(60);
+  text("X: "+mouseX, 0, height/4);
+  text("Y: "+mouseY, 0, height/2);
+}
+{
+    
+    
+ellipse(mouseX, 16, 33, 13);   // Top circle
+  ellipse(mouseX/2, 50, 33, 13); // Middle circle
+  ellipse(mouseX*2, 84, 33, 13); // Bottom circle
+}
+}
+
   let t = frameCount / 60; // update time
 
   // create a random number of snowflakes each frame
@@ -33,6 +47,10 @@ function draw() {
     flake.update(t); // update snowflake position
     flake.display(); // draw snowflake
   }
+    
+    let c = color(178, 166, 140 ); // Define color 'c'
+fill(c); // Use color variable 'c' as fill color
+noStroke(); // Don't draw a stroke around shapes
     triangle(-44, 595, 539, 594, 239, 125); 
 }
 
@@ -70,5 +88,3 @@ function snowflake() {
     ellipse(this.posX, this.posY, this.size);
   };
 }
-
-
